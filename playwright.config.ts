@@ -34,9 +34,11 @@ export default defineConfig({
     launchOptions: {
       slowMo: 500,
     },
+    video: 'on',
+    screenshot: 'only-on-failure',
+    trace: 'on',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'retain-on-failure',
   },
 
   /* Configure projects for major browsers */

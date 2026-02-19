@@ -49,11 +49,11 @@ npx playwright install
 
 ## ▶️ Ejecución de tests hay diferentes formas:
 
-Para ejecutar todos los tests:
+1. Para ejecutar todos los tests:
 
-npx playwright test
+1npx playwright test
 
-Para ejecutar en modo UI:
+2. Para ejecutar en modo UI:
 
 npx playwright test --ui
 
@@ -61,34 +61,5 @@ npx playwright test --ui
 ----------------------------------------------------
 ## ▶️ Ejecución de tests en Jenkins / Pipeline (Jenkinsfile)
 
-pipeline {
-    agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'develop', url: 'https://github.com/Yanina2021/amazon-playwright'
-            }
-        }
-
-        stage('Install dependencies') {
-            steps {
-                sh 'npm install'
-                sh 'npx playwright install --with-deps'
-            }
-        }
-
-        stage('Run tests') {
-            steps {
-                sh 'npx playwright test --reporter=html'
-            }
-        }
-    }
-
-    post {
-        always {
-            archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
-        }
-    }
-}
 
