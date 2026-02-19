@@ -5,7 +5,7 @@ test('End to End test', async ({ homePage, page, loginPage }) => {
     test.setTimeout(100000);
 
     await loginPage.goToAmazonSite();
-    await homePage.closeLocationModal();
+    // await homePage.closeLocationModal();
 
     await homePage.searchProduct(process.env.PRODUCT_SEARCH!);
     await homePage.validateSearchResults(process.env.PRODUCT_SEARCH!);
