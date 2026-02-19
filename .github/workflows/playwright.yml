@@ -28,7 +28,6 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
         env:
-          BASE_URL: ${{ vars.BASE_URL }}
           PRODUCT_SEARCH: ${{ vars.PRODUCT_SEARCH }}
           BRAND_FILTER: ${{ vars.BRAND_FILTER }}
           HIGT_PRICE_OPTION: ${{ vars.HIGT_PRICE_OPTION }}

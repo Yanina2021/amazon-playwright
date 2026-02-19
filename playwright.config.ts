@@ -29,7 +29,7 @@ export default defineConfig({
     ['json', { outputFile: 'test-results/test-results.json' }]
   ],
   use: {
-    baseURL: process.env.BASE_URL,
+    baseURL: 'https://www.amazon.com',
     launchOptions: {
       slowMo: 500,
     },
