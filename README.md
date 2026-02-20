@@ -27,21 +27,22 @@ _________________________________________________________________________
 
 ✅ Page Object Model (POM)
 
-✅ Variables de entorno con .env
-
 ✅ Jenkins Pipeline (Jenkinsfile)
+
+✅ GitHub Actions
 
 _________________________________________________________________________
 
 ## 📂 Estructura del proyecto
-
+├── .github/
+│   └── workflows/
+│       └── playwright.yml
 ├── pages/
 │   └── homePage.ts
     └── login.ts
 ├── specs/
 │   └── challange.spec.ts
   └── base.ts
-├── .env
 ├── Jenkinsfile
 ├── package.json
 ├── playwright.config.ts
@@ -118,6 +119,32 @@ El pipeline realiza:
 * Ejecución de tests
 
 * Publicación de reporte HTML
+
+_________________________________________________________________________
+## 🚀 Ejecución en GitHub Actions
+
+Este proyecto incluye un workflow de **GitHub Actions** que permite ejecutar automáticamente los tests en cada push o pull request a la rama `develop`.
+
+### 📌 Qué hace el workflow
+
+- Instala Node.js y dependencias
+- Instala los navegadores necesarios de Playwright
+- Ejecuta todos los tests de Playwright
+- Genera reporte HTML de los tests (`playwright-report/index.html`)
+- Genera videos de los tests si están habilitados en la config
+- Sube los reportes como artifacts
+- Envía un email de notificación al terminar la ejecución (opcional, si se configuran los secrets)
+
+### 🔹 Cómo funciona
+
+1. Cada vez que hay un push o pull request a la rama `develop`, se dispara automáticamente el workflow.
+2. Se ejecuta en un runner Ubuntu (`ubuntu-latest`).
+3. Los resultados se pueden consultar directamente desde la pestaña **Actions** del repositorio.
+4. Para descargar reportes y videos:
+   - Entrar al workflow correspondiente en **Actions**
+   - Seleccionar la ejecución
+   - Descargar los **Artifacts** (`playwright-report.zip`) que contienen el reporte HTML y los videos.
+
 
 
 

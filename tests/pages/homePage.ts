@@ -36,7 +36,7 @@ export class HomePage {
     }
 
     async validateSearchResults(term: string) {
-        //await expect(this.page).toHaveURL(new RegExp(`k=${term}`));
+        await expect(this.page).toHaveURL(new RegExp(`k=${term}`));
         await expect(this.productsContainer.first()).toBeVisible();
     }
 
