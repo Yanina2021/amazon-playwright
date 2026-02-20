@@ -4,14 +4,24 @@ import { defineConfig, devices } from '@playwright/test';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-import dotenv from 'dotenv';
-import path from 'path';
-process.env.CI ? dotenv.config() : dotenv.config({ path: path.resolve(__dirname, 'env/.env') });
-
-
+// import dotenv from 'dotenv';
+//import path from 'path';
+//process.env.CI ? dotenv.config() : dotenv.config({ path: path.resolve(__dirname, 'env/.env') });
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
+export const testConfig = {
+  BASE_URL: process.env.BASE_URL ?? 'https://www.amazon.com',
+  PRODUCT_SEARCH: process.env.PRODUCT_SEARCH ?? 'zapatos',
+  BRAND_FILTER: process.env.BRAND_FILTER ?? 'skechers',
+  HIGH_PRICE_OPTION: process.env.HIGH_PRICE_OPTION ?? 'price-desc-rank',
+  HIGH_PRICE_COMMENT: process.env.HIGH_PRICE_COMMENT ?? 'Top 5 por precio más alto',
+  NEW_RELEASES_OPTION: process.env.NEW_RELEASES_OPTION ?? 'date-desc-rank',
+  NEW_RELEASES_COMMENT: process.env.NEW_RELEASES_COMMENT ?? 'Top 5 por nuevos lanzamientos',
+  REVIEW_RANK_OPTION: process.env.REVIEW_RANK_OPTION ?? 'review-rank',
+  REVIEW_RANK_COMMENT: process.env.REVIEW_RANK_COMMENT ?? 'Top 5 por promedio de comentarios',
+};
 
 export default defineConfig({
   testDir: './tests',
@@ -29,7 +39,7 @@ export default defineConfig({
     ['json', { outputFile: 'test-results/test-results.json' }]
   ],
   use: {
-    baseURL: 'https://www.amazon.com',
+    baseURL: testConfig.BASE_URL,
     headless: true,
     launchOptions: {
       slowMo: 500,

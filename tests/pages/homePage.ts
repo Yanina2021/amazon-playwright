@@ -1,5 +1,6 @@
 
 import { expect, Locator, Page } from "@playwright/test";
+import { testConfig } from "../../playwright.config";
 
 export class HomePage {
     readonly page: Page;
@@ -23,7 +24,7 @@ export class HomePage {
     }
 
     async goToAmazonSite() {
-        await this.page.goto(process.env.BASE_URL!, {
+        await this.page.goto(testConfig.BASE_URL, {
             waitUntil: 'domcontentloaded',
             timeout: 60000
         });
