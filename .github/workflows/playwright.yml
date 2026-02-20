@@ -27,7 +27,6 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test
-
         env:
           BASE_URL: https://www.amazon.com
           PRODUCT_SEARCH: zapatos

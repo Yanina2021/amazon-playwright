@@ -1,7 +1,5 @@
 # 🧪 Challenge QA Automation – Playwright
 
-![Playwright Tests](https://github.com/Yanina2021/amazon-playwright/actions/workflows/playwright.yml/badge.svg)
-
 ## Descripción
 
 Este proyecto contiene la automatización de un flujo de búsqueda y ordenamiento de productos en Amazon utilizando **Playwright + TypeScript**.
