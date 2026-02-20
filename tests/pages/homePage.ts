@@ -23,8 +23,10 @@ export class HomePage {
     }
 
     async goToAmazonSite() {
-        await this.page.goto('/');
-        await this.page.waitForTimeout(2000);
+        await this.page.goto(process.env.BASE_URL!, {
+            waitUntil: 'domcontentloaded',
+            timeout: 60000
+        });
     }
 
     async searchProduct(product: string) {

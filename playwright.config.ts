@@ -30,6 +30,7 @@ export default defineConfig({
   ],
   use: {
     baseURL: 'https://www.amazon.com',
+    headless: true,
     launchOptions: {
       slowMo: 500,
     },

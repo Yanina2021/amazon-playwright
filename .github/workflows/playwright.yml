@@ -6,20 +6,20 @@ on:
   pull_request:
     branches: [ develop ]
 
-env:
-  BASE_URL: ${{ vars.BASE_URL }}
-  PRODUCT_SEARCH: ${{ vars.PRODUCT_SEARCH }}
-  BRAND_FILTER: ${{ vars.BRAND_FILTER }}
-  HIGT_PRICE_OPTION: ${{ vars.HIGT_PRICE_OPTION }}
-  HIGT_PRICE_COMMENT: ${{ vars.HIGT_PRICE_COMMENT }}
-  NEW_RELEASES_OPTION: ${{ vars.NEW_RELEASES_OPTION }}
-  NEW_RELEASES_COMMENT: ${{ vars.NEW_RELEASES_COMMENT }}
-  REVIEW_RANK_OPTION: ${{ vars.REVIEW_RANK_OPTION }}
-  REVIEW_RANK_COMMENT: ${{ vars.REVIEW_RANK_COMMENT }}
-
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    env:
+      BASE_URL: https://www.amazon.com
+      PRODUCT_SEARCH: zapatos
+      BRAND_FILTER: skechers
+      HIGT_PRICE_OPTION: price-desc-rank
+      HIGT_PRICE_COMMENT: Top 5 por precio más alto
+      NEW_RELEASES_OPTION: date-desc-rank
+      NEW_RELEASES_COMMENT: Top 5 por nuevos lanzamientos
+      REVIEW_RANK_OPTION: review-rank
+      REVIEW_RANK_COMMENT: Top 5 por promedio de comentarios
 
     steps:
       - name: Checkout repository
