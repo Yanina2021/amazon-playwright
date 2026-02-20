@@ -4,6 +4,16 @@
 
 Este proyecto contiene la automatización de un flujo de búsqueda y ordenamiento de productos en Amazon utilizando **Playwright + TypeScript**.
 
+El flujo automatizado incluye:
+
+- 🔎 Búsqueda de productos
+- 🏷️ Filtrado por marca
+- 📊 Ordenamiento por precio (mayor a menor)
+- ⭐ Ordenamiento por promedio de comentarios
+- 📦 Obtención de los primeros 5 resultados
+- 🖨️ Impresión en consola de productos con nombre y precio
+
+_________________________________________________________________________
 ## 🌿 Estrategia de ramas
 
 El repositorio utiliza dos ramas principales:
@@ -13,8 +23,6 @@ El repositorio utiliza dos ramas principales:
 * main → Rama estable / producción.
 
 _________________________________________________________________________
-
-
 ## 🛠️ Tecnologías utilizadas
 
 ✅ Playwright
@@ -30,7 +38,6 @@ _________________________________________________________________________
 ✅ GitHub Actions
 
 _________________________________________________________________________
-
 ## 📂 Estructura del proyecto
 ├── .github/
 │   └── workflows/
@@ -47,8 +54,8 @@ _________________________________________________________________________
 └── README.md
 
 _________________________________________________________________________
-
 ## ⚙️ Instalación
+
 ## 1️⃣ Clonar el repositorio
 git clone https://github.com/Yanina2021/amazon-playwright.git
 
@@ -65,7 +72,6 @@ npx playwright install
 * Ejecutar en modo UI >> npx playwright test --ui
 
 _________________________________________________________________________
-
 ## 📊 Reportes
 
 El proyecto genera:
@@ -73,10 +79,9 @@ El proyecto genera:
 * 📄 Reporte HTML automático
 Ubicación: playwright-report/index.html
 
-* Para visualizar el reporte HTML:  >> npx playwright show-report
+* Para visualizar el reporte HTML (pegar en consola):  >> npx playwright show-report
 
 _________________________________________________________________________
-
 ## 🚀 Ejecución en Jenkins
 
 El proyecto incluye un Jenkinsfile para permitir la ejecución automatizada en un servidor Jenkins.
@@ -90,6 +95,7 @@ El proyecto incluye un Jenkinsfile para permitir la ejecución automatizada en u
 * Plugin JUnit
 
 * Node configurado como herramienta global
+
 
 ## 🛠️ Configuración del Job
 
@@ -142,7 +148,3 @@ Este proyecto incluye un workflow de **GitHub Actions** que permite ejecutar aut
    - Entrar al workflow correspondiente en **Actions**
    - Seleccionar la ejecución
    - Descargar los **Artifacts** (`playwright-report.zip`) que contienen el reporte HTML y los videos.
-
-
-
-

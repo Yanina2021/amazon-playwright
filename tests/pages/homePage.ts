@@ -17,7 +17,7 @@ export class HomePage {
         this.page = page;
         this.searchBox = page.locator('#twotabsearchtextbox');
         this.searchBtn = page.locator('#nav-search-submit-button');
-        this.closeModalBtn = page.getByRole('button', { name: 'Submit' }).first();
+        this.closeModalBtn = page.getByRole('button', { name: 'Dismiss' });
         this.skechersFilterOption = page.getByRole('link', { name: 'Apply Skechers filter to' });
         this.sortDropdown = this.page.locator('#s-result-sort-select');
         this.productsContainer = this.page.locator('div.s-main-slot div[data-component-type="s-search-result"]');
@@ -33,16 +33,15 @@ export class HomePage {
     }
 
     async validateContinueShoppingBtn() {
-        // Check if button is visible
         if (await this.continueShoppingBtn.isVisible()) {
             console.log('Button is visible ✅');
-            // Click the button
             await this.continueShoppingBtn.click();
             console.log('Clicked the button ✅');
         } else {
             console.log('Button not found ❌');
         }
     }
+
     async searchProduct(product: string) {
         await this.searchBox.fill(product);
         await this.searchBtn.click();
@@ -53,11 +52,18 @@ export class HomePage {
     }
 
     async closeLocationModal() {
-        await this.closeModalBtn.click();
+        if (await this.closeModalBtn.isVisible()) {
+            console.log('Button is visible ✅');
+            await this.closeModalBtn.click();
+            console.log('Clicked the button ✅');
+        } else {
+            console.log('Button not found ❌');
+        }
     }
 
     async filterBrand(brand: string) {
         await this.skechersFilterOption.click();
+        await this.page.waitForTimeout(1000);
     }
 
     async sortBy(option: string) {
