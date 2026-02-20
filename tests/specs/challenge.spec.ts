@@ -7,6 +7,7 @@ test('End to End test', async ({ homePage, page }) => {
 
     await homePage.goToAmazonSite();
 
+    await homePage.validateContinueShoppingBtn()
     await homePage.searchProduct(testConfig.PRODUCT_SEARCH);
     await homePage.validateSearchResults();
 

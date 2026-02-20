@@ -11,6 +11,7 @@ export class HomePage {
     readonly productsContainer: Locator;
     readonly sortDropdown: Locator;
     readonly results: Locator;
+    readonly continueShoppingBtn: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -21,6 +22,7 @@ export class HomePage {
         this.sortDropdown = this.page.locator('#s-result-sort-select');
         this.productsContainer = this.page.locator('div.s-main-slot div[data-component-type="s-search-result"]');
         this.results = page.locator('[data-component-type="s-search-result"]');
+        this.continueShoppingBtn = page.locator('button:has-text("Continue shopping")')
     }
 
     async goToAmazonSite() {
@@ -30,6 +32,17 @@ export class HomePage {
         });
     }
 
+    async validateContinueShoppingBtn() {
+        // Check if button is visible
+        if (await this.continueShoppingBtn.isVisible()) {
+            console.log('Button is visible ✅');
+            // Click the button
+            await this.continueShoppingBtn.click();
+            console.log('Clicked the button ✅');
+        } else {
+            console.log('Button not found ❌');
+        }
+    }
     async searchProduct(product: string) {
         await this.searchBox.fill(product);
         await this.searchBtn.click();
