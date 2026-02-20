@@ -1,10 +1,10 @@
 
 import { test } from "../base";
 
-test('End to End test', async ({ homePage, page, loginPage }) => {
+test('End to End test', async ({ homePage, page }) => {
     test.setTimeout(100000);
 
-    await loginPage.goToAmazonSite();
+    await homePage.goToAmazonSite();
     // await homePage.closeLocationModal();
 
     await homePage.searchProduct(process.env.PRODUCT_SEARCH!);
