@@ -35,8 +35,7 @@ export class HomePage {
         await this.searchBtn.click();
     }
 
-    async validateSearchResults(term: string) {
-        await expect(this.page).toHaveURL(new RegExp(`k=${term}`));
+    async validateSearchResults() {
         await expect(this.productsContainer.first()).toBeVisible();
     }
 

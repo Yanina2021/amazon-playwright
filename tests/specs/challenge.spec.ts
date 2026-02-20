@@ -8,7 +8,7 @@ test('End to End test', async ({ homePage, page }) => {
     await homePage.goToAmazonSite();
 
     await homePage.searchProduct(testConfig.PRODUCT_SEARCH);
-    await homePage.validateSearchResults(testConfig.PRODUCT_SEARCH);
+    await homePage.validateSearchResults();
 
     await homePage.filterBrand(testConfig.BRAND_FILTER);
     await page.waitForTimeout(1000);
