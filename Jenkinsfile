@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git branch: 'develop', url: 'https://github.com/Yanina2021/amazon-playwright'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
